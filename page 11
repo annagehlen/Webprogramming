@@ -1,0 +1,29 @@
+PImage img;
+
+void setup(){
+  size(900,900, P3D);
+  img = loadImage("Eddi.jpg");
+  img.resize(900,900);
+}
+
+void draw(){
+  background(255);
+  fill(0);
+  noStroke();
+  
+  float tiles = mouseX/4;
+  float tileSize = width/tiles;
+  
+  for (int x = 0; x<tiles; x++){
+   for (int y = 0; y<tiles; y++){
+    
+     color c = img.get(int(x*tileSize),int(y*tileSize));
+     float b = map(brightness(c),255,0,0,1);
+   
+     push();
+     translate(x*tileSize,y*tileSize);
+     ellipse(0,0,tileSize*b,tileSize*b);
+     pop();
+   }
+  }
+}
