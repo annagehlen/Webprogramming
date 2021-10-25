@@ -1,0 +1,21 @@
+void setup() {
+  size(400,400);
+  background(255);
+  
+}
+
+void draw(){
+  float e = random(0.1,1);
+  
+  int x = 0;
+  while (x <mouseX) {
+    line(200,200,mouseX,mouseY);
+    noFill();
+    stroke(random(255),random(255),random(255));
+    strokeWeight(e);
+    x = x + 70;
+  }
+  delay(50);{
+    e = e + 0.1;
+  }
+}
